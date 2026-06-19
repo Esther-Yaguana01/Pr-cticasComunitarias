@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Navigate, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useAuth } from '../../hooks/useAuth'
 import { supabase } from '../../lib/supabase'
 
@@ -90,6 +90,13 @@ export function AdminLoginPage() {
         >
           {submitting ? 'Ingresando...' : 'Ingresar'}
         </button>
+
+        <Link
+          to="/"
+          className="mt-3 flex w-full items-center justify-center rounded-lg border border-charcoal/15 bg-white px-4 py-2.5 text-sm font-medium text-charcoal no-underline hover:bg-rose-light/30"
+        >
+          Ir a la página principal
+        </Link>
       </form>
     </div>
   )
