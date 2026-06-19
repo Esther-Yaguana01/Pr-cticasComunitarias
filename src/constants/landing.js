@@ -20,3 +20,27 @@ export const STATS = [
   { value: '6+', label: 'Talleres' },
   { value: '100%', label: 'Gratuito' },
 ]
+
+export const MODULES = [
+  {
+    id: 'asesoria-imagen',
+    title: 'Asesoría de imagen',
+    description: 'Tipo de cuerpo, color y estilo propio',
+    videos: 4,
+    color: 'rose',
+  },
+  {
+    id: 'nutricion',
+    title: 'Nutrición',
+    description: 'Alimentación saludable y hábitos',
+    videos: 3,
+    color: 'green',
+  },
+  {
+    id: 'cuidado-piel',
+    title: 'Cuidado de la piel',
+    description: 'Rutinas y prevención de trastornos',
+    videos: 4,
+    color: 'amber',
+  },
+]

@@ -1,6 +1,7 @@
 import { Header } from '../components/layout/Header'
 import { Hero } from '../components/landing/Hero'
 import { StatsBar } from '../components/landing/StatsBar'
+import { Modules } from '../components/landing/modules/Modules'
 
 export function LandingPage() {
   return (
@@ -8,6 +9,7 @@ export function LandingPage() {
       <Header />
       <main>
         <Hero />
+        <Modules />
         <StatsBar />
       </main>
     </div>

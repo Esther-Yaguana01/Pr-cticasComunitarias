@@ -39,7 +39,12 @@ export function Hero() {
         </p>
 
         <div className="flex flex-wrap gap-3">
-          <Button variant="outlineLight">Ver módulos</Button>
+          <Button
+            variant="outlineLight"
+            onClick={() => document.getElementById('modules')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Ver módulos
+          </Button>
           <Button variant="solid">Registrarme</Button>
         </div>
       </div>
