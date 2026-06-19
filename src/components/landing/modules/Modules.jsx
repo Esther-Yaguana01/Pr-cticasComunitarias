@@ -5,7 +5,7 @@ export function Modules() {
   return (
     <section id="modules" className="mx-auto max-w-6xl px-5 py-12 sm:px-8">
       <h2 className="mb-6 font-serif text-2xl font-semibold text-charcoal sm:text-3xl">
-        Elige tu módulo de aprendizaje
+        Módulo de aprendizaje
       </h2>
 
       <div className="grid gap-5 sm:grid-cols-3">

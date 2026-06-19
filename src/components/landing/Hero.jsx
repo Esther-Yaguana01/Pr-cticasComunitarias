@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import {
   HERO_DESCRIPTION,
   HERO_TAG,
@@ -39,13 +40,12 @@ export function Hero() {
         </p>
 
         <div className="flex flex-wrap gap-3">
-          <Button
-            variant="outlineLight"
-            onClick={() => document.getElementById('modules')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Ver módulos
-          </Button>
-          <Button variant="solid">Registrarme</Button>
+          <Link to="/modules" className="no-underline">
+            <Button variant="outlineLight">Ver módulos</Button>
+          </Link>
+          <Link to="/register" className="no-underline">
+            <Button variant="solid">Registrarme</Button>
+          </Link>
         </div>
       </div>
     </section>
