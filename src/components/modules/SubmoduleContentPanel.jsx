@@ -1,3 +1,5 @@
+import { isDirectVideoFile } from '../../utils/video'
+
 function EmptyState({ label }) {
   return (
     <p className="rounded-2xl border border-dashed border-charcoal/15 bg-white/70 px-4 py-8 text-center text-sm text-charcoal/55">
@@ -26,17 +28,28 @@ function PdfItem({ item }) {
 }
 
 function VideoItem({ item }) {
+  const directVideo = isDirectVideoFile(item.file_url)
+
   return (
     <article className="overflow-hidden rounded-2xl border border-charcoal/10 bg-white">
       {item.file_url ? (
         <div className="aspect-video bg-charcoal/5">
-          <iframe
-            src={item.file_url}
-            title={item.title}
-            className="h-full w-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+          {directVideo ? (
+            <video
+              src={item.file_url}
+              controls
+              className="h-full w-full"
+              title={item.title}
+            />
+          ) : (
+            <iframe
+              src={item.file_url}
+              title={item.title}
+              className="h-full w-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          )}
         </div>
       ) : (
         <div className="flex aspect-video items-center justify-center bg-charcoal/5 text-sm text-charcoal/50">

@@ -82,7 +82,15 @@ Esto crea 4 submódulos (tabs) por cada módulo:
 npm run seed:submodules
 ```
 
-## 5. Probar el panel admin
+## 5. Storage para PDFs y videos (admin)
+
+Antes de subir archivos desde `/admin/contents`, ejecuta en el SQL Editor:
+
+`supabase/setup-storage-completo.sql`
+
+Esto crea el bucket `contenidos` con lectura pública y permisos de subida para SUPER_ADMIN.
+
+## 6. Probar el panel admin
 
 1. `npm run dev`
 2. Abre `http://localhost:5173/admin/login`
