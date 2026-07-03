@@ -3,7 +3,7 @@ export const SITE_NAME = {
   secondary: 'en Acción',
 }
 
-export const HERO_TAG = 'INSTITUTO RUMIÑAHUI · MIES Estética integral'
+export const HERO_TAG = 'Programa comunitario de bienestar'
 
 export const HERO_TITLE = {
   before: 'Imagen,',
