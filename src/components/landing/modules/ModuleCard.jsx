@@ -1,4 +1,6 @@
-export function ModuleCard({ title, description, videos, color = 'rose' }) {
+import { Link } from 'react-router-dom'
+
+export function ModuleCard({ title, description, videos, color = 'rose', slug }) {
   const styles = {
     rose: {
       card: 'from-[#fff7f2] to-[#fff1e8] border-[#e9c4b4]',
@@ -42,9 +44,18 @@ export function ModuleCard({ title, description, videos, color = 'rose' }) {
 
       <div className="mt-6 flex items-center justify-between">
         <span className={`rounded-full px-3 py-1 text-xs font-medium ${styles.pill}`}>Contenido práctico</span>
-        <button className={`text-sm font-semibold transition-transform duration-200 group-hover:translate-x-0.5 ${styles.action}`}>
-          Ver
-        </button>
+        {slug ? (
+          <Link
+            to={`/modules/${slug}`}
+            className={`text-sm font-semibold no-underline transition-transform duration-200 group-hover:translate-x-0.5 ${styles.action}`}
+          >
+            Ver
+          </Link>
+        ) : (
+          <button type="button" className={`text-sm font-semibold transition-transform duration-200 group-hover:translate-x-0.5 ${styles.action}`}>
+            Ver
+          </button>
+        )}
       </div>
     </article>
   )

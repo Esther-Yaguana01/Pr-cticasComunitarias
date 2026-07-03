@@ -7,6 +7,7 @@ import { AdminLoginPage } from '../pages/admin/AdminLoginPage'
 import { AdminModulesPage } from '../pages/admin/AdminModulesPage'
 import { AdminSuggestionsPage } from '../pages/admin/AdminSuggestionsPage'
 import { LandingPage } from '../pages/public/LandingPage'
+import { ModuleDetailPage } from '../pages/public/ModuleDetailPage'
 import { ModulesPage } from '../pages/public/ModulesPage'
 import { ProgressPage } from '../pages/public/ProgressPage'
 import { RegisterPage } from '../pages/public/RegisterPage'
@@ -21,6 +22,7 @@ export function AppRouter() {
         <Route element={<PublicLayout />}>
           <Route path="/" element={<LandingPage />} />
           <Route path="/modules" element={<ModulesPage />} />
+          <Route path="/modules/:slug" element={<ModuleDetailPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/suggestions" element={<SuggestionsPage />} />
           <Route element={<CaregiverRoute />}>

@@ -49,7 +49,40 @@ WHERE is_published = TRUE
 ORDER BY sort_order;
 ```
 
-## 4. Probar el panel admin
+## 4. Submódulos de Asesoría de imagen (tabs)
+
+1. Ejecuta `supabase/migrations/003_submodules.sql` en el SQL Editor.
+2. Luego ejecuta `004_seed_asesoria_submodules.sql` **o**:
+
+```bash
+npm run seed:asesoria-submodules
+```
+
+Esto crea 4 submódulos (tabs) por cada módulo:
+
+**Asesoría de imagen**
+- Imagen Personal y Autoconocimiento
+- Visagismo y Estilo Personal
+- Colorimetría y Armonía de la Imagen
+- Imagen Profesional y Marca Personal
+
+**Nutrición**
+- Alimentación Saludable y Equilibrada
+- Nutrición para la Belleza y el Bienestar
+- Hábitos Saludables e Hidratación
+- Educación Nutricional y Prevención
+
+**Cuidado de la piel**
+- Conociendo tu Piel
+- Rutinas y Cuidados Básicos
+- Prevención y Protección Cutánea
+- Tratamientos y Bienestar Facial
+
+```bash
+npm run seed:submodules
+```
+
+## 5. Probar el panel admin
 
 1. `npm run dev`
 2. Abre `http://localhost:5173/admin/login`

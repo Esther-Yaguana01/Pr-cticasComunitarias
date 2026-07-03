@@ -35,6 +35,7 @@ export function ModulesPage() {
               key={module.id}
               title={module.title}
               description={module.description}
+              slug={module.slug}
               color={getModuleColor(module.slug)}
             />
           ))}
