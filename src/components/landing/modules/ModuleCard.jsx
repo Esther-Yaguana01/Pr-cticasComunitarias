@@ -31,10 +31,12 @@ export function ModuleCard({ title, description, videos, color = 'rose' }) {
     >
       <span className="absolute right-5 top-5 h-12 w-12 rounded-2xl bg-white/45" aria-hidden="true" />
       <div className="relative">
-        <span className={`inline-flex rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] ${styles.badge}`}>
-          {videos} videos
-        </span>
-        <h3 className="mt-3 font-serif text-2xl font-semibold text-charcoal">{title}</h3>
+        {videos != null && (
+          <span className={`inline-flex rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] ${styles.badge}`}>
+            {videos} videos
+          </span>
+        )}
+        <h3 className={`font-serif text-2xl font-semibold text-charcoal ${videos != null ? 'mt-3' : ''}`}>{title}</h3>
         <p className="mt-2 text-sm leading-6 text-charcoal/75">{description}</p>
       </div>
 

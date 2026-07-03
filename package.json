@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "seed:admin": "node --env-file=.env scripts/seed-super-admin.mjs"
+    "seed:admin": "node --env-file=.env scripts/seed-super-admin.mjs",
+    "seed:modules": "node --env-file=.env scripts/seed-modules.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.1",
