@@ -49,10 +49,10 @@ export function AdminLoginPage() {
   }
 
   return (
-    <div className="flex min-h-svh items-center justify-center bg-cream px-5">
+    <div className="flex min-h-svh items-center justify-center bg-cream px-4 py-8 sm:px-5">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md rounded-2xl border border-charcoal/8 bg-white p-8 shadow-sm"
+        className="w-full max-w-md rounded-2xl border border-charcoal/8 bg-white p-5 shadow-sm sm:p-8"
       >
         <h1 className="font-serif text-3xl font-semibold text-charcoal">Admin</h1>
         <p className="mt-2 text-sm text-charcoal/70">

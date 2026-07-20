@@ -69,7 +69,6 @@ export function AuthProvider({ children }) {
     loading,
     signOut,
     isSuperAdmin: profile?.role === 'SUPER_ADMIN',
-    isCaregiver: profile?.role === 'CAREGIVER',
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

@@ -1,14 +1,33 @@
 import { supabase } from './supabase'
 
 export async function fetchPublishedModules() {
-  const { data, error } = await supabase
-    .from('modules')
-    .select('id, title, description, slug, sort_order')
-    .eq('is_published', true)
-    .order('sort_order')
+  const [modulesResult, contentsResult] = await Promise.all([
+    supabase
+      .from('modules')
+      .select('id, title, description, slug, sort_order')
+      .eq('is_published', true)
+      .order('sort_order'),
+    supabase
+      .from('contents')
+      .select('module_id, type')
+      .eq('is_published', true)
+      .in('type', ['video', 'pdf']),
+  ])
 
-  if (error) throw error
-  return data ?? []
+  if (modulesResult.error) throw modulesResult.error
+  if (contentsResult.error) throw contentsResult.error
+
+  const contents = contentsResult.data ?? []
+
+  return (modulesResult.data ?? []).map((module) => {
+    const moduleContents = contents.filter((item) => item.module_id === module.id)
+
+    return {
+      ...module,
+      videoCount: moduleContents.filter((item) => item.type === 'video').length,
+      pdfCount: moduleContents.filter((item) => item.type === 'pdf').length,
+    }
+  })
 }
 
 export async function fetchModuleBySlug(slug) {

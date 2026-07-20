@@ -12,11 +12,11 @@ export function AdminDashboardPage() {
 
   return (
     <div className="space-y-8">
-      <header className="rounded-[28px] border border-terracotta/15 bg-gradient-to-r from-[#f9eee6] via-white to-[#f4e8db] p-6 sm:p-8">
+      <header className="rounded-[24px] border border-terracotta/15 bg-gradient-to-r from-[#f9eee6] via-white to-[#f4e8db] p-5 sm:rounded-[28px] sm:p-8">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-terracotta-dark">
           Mujer en Acción · Admin
         </p>
-        <h1 className="mt-2 font-serif text-4xl font-semibold text-charcoal">{greeting}</h1>
+        <h1 className="mt-2 font-serif text-3xl font-semibold text-charcoal sm:text-4xl">{greeting}</h1>
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-charcoal/75">
           Resumen del proyecto: módulos educativos, contenido publicado y actividad de las beneficiarias.
         </p>
@@ -33,17 +33,11 @@ export function AdminDashboardPage() {
       {stats && (
         <>
           <section>
-            <div className="mb-4 flex items-end justify-between gap-4">
+            <div className="mb-4">
               <h2 className="font-serif text-2xl font-semibold text-charcoal">Estadísticas generales</h2>
-              <Link
-                to="/admin/suggestions"
-                className="text-sm font-medium text-terracotta-dark no-underline hover:underline"
-              >
-                Ver sugerencias →
-              </Link>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               <StatCard
                 label="Módulos"
                 value={stats.modulesPublished}
@@ -61,12 +55,6 @@ export function AdminDashboardPage() {
                 value={stats.caregiversTotal}
                 hint="Cuidadoras registradas"
                 accent="amber"
-              />
-              <StatCard
-                label="Sugerencias"
-                value={stats.suggestionsUnread}
-                hint={`${stats.suggestionsTotal} recibidas en total`}
-                accent="slate"
               />
             </div>
           </section>

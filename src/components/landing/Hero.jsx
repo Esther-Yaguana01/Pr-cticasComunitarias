@@ -8,7 +8,7 @@ import { Button } from '../ui/Button'
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-terracotta-dark via-terracotta to-terracotta-light px-5 py-14 sm:px-8 sm:py-20">
+    <section className="relative overflow-hidden bg-gradient-to-br from-terracotta-dark via-terracotta to-terracotta-light px-4 py-12 sm:px-8 sm:py-20">
       {/* Decoración orgánica */}
       <div
         className="pointer-events-none absolute -right-16 -top-20 h-72 w-72 rounded-full bg-white/8 blur-3xl"
@@ -41,10 +41,7 @@ export function Hero() {
 
         <div className="flex flex-wrap gap-3">
           <Link to="/modules" className="no-underline">
-            <Button variant="outlineLight">Ver módulos</Button>
-          </Link>
-          <Link to="/register" className="no-underline">
-            <Button variant="solid">Registrarme</Button>
+            <Button variant="solid">Ver módulos</Button>
           </Link>
         </div>
       </div>

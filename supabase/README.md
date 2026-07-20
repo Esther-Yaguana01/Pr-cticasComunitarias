@@ -100,13 +100,9 @@ Esto crea el bucket `contenidos` con lectura pública y permisos de subida para 
 
 | Ruta | Acceso |
 |------|--------|
-| `/` | Público |
-| `/modules` | Público |
-| `/register` | Público |
-| `/progress` | Cuidadora autenticada |
-| `/suggestions` | Público |
+| `/` | Público (sin login) |
+| `/modules` | Público (sin login) |
 | `/admin/login` | Login admin (oculto del menú) |
 | `/admin` | SUPER_ADMIN |
 | `/admin/modules` | SUPER_ADMIN |
 | `/admin/contents` | SUPER_ADMIN |
-| `/admin/suggestions` | SUPER_ADMIN |

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export function ModuleCard({ title, description, videos, color = 'rose', slug }) {
+export function ModuleCard({ title, description, videos, pdfs, color = 'rose', slug }) {
   const styles = {
     rose: {
       card: 'from-[#fff7f2] to-[#fff1e8] border-[#e9c4b4]',
@@ -27,22 +27,33 @@ export function ModuleCard({ title, description, videos, color = 'rose', slug })
     action: 'text-charcoal',
   }
 
+  const hasCounts = videos != null || pdfs != null
+
   return (
     <article
-      className={`group relative overflow-hidden rounded-[28px] border bg-gradient-to-br ${styles.card} p-6 shadow-[0_18px_40px_-28px_rgba(30,28,26,0.7)]`}
+      className={`group relative min-w-0 overflow-hidden rounded-[24px] border bg-gradient-to-br sm:rounded-[28px] ${styles.card} p-5 shadow-[0_18px_40px_-28px_rgba(30,28,26,0.7)] sm:p-6`}
     >
-      <span className="absolute right-5 top-5 h-12 w-12 rounded-2xl bg-white/45" aria-hidden="true" />
-      <div className="relative">
-        {videos != null && (
-          <span className={`inline-flex rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] ${styles.badge}`}>
-            {videos} videos
-          </span>
+      <span className="absolute right-5 top-5 hidden h-12 w-12 rounded-2xl bg-white/45 sm:block" aria-hidden="true" />
+      <div className="relative min-w-0">
+        {hasCounts && (
+          <div className="flex flex-wrap gap-2">
+            {videos != null && (
+              <span className={`inline-flex rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] ${styles.badge}`}>
+                {videos} videos
+              </span>
+            )}
+            {pdfs != null && (
+              <span className={`inline-flex rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.18em] ${styles.badge}`}>
+                {pdfs} pdfs
+              </span>
+            )}
+          </div>
         )}
-        <h3 className={`font-serif text-2xl font-semibold text-charcoal ${videos != null ? 'mt-3' : ''}`}>{title}</h3>
-        <p className="mt-2 text-sm leading-6 text-charcoal/75">{description}</p>
+        <h3 className={`font-serif text-xl font-semibold break-words text-charcoal sm:text-2xl ${hasCounts ? 'mt-3' : ''}`}>{title}</h3>
+        <p className="mt-2 text-sm leading-6 break-words text-charcoal/75">{description}</p>
       </div>
 
-      <div className="mt-6 flex items-center justify-between">
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
         <span className={`rounded-full px-3 py-1 text-xs font-medium ${styles.pill}`}>Contenido práctico</span>
         {slug ? (
           <Link

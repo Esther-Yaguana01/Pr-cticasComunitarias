@@ -26,7 +26,7 @@ export function ModuleDetailPage() {
   const accent = MODULE_ACCENT[getModuleColor(slug)] ?? MODULE_ACCENT.rose
 
   return (
-    <section className="mx-auto max-w-6xl px-5 py-10 sm:px-8">
+    <section className="mx-auto w-full min-w-0 max-w-6xl px-4 py-8 sm:px-8 sm:py-10">
       <Link
         to="/modules"
         className="inline-flex items-center text-sm font-medium text-charcoal/60 transition-colors hover:text-charcoal"
@@ -44,13 +44,17 @@ export function ModuleDetailPage() {
 
       {!loading && !error && module && (
         <>
-          <div className="mt-6 max-w-3xl">
+          <div className="mt-6 max-w-3xl min-w-0">
             <p className={`text-xs font-semibold uppercase tracking-[0.2em] ${accent}`}>
               Módulo educativo
             </p>
-            <h1 className="mt-2 font-serif text-4xl font-semibold text-charcoal">{module.title}</h1>
+            <h1 className="mt-2 font-serif text-3xl font-semibold break-words text-charcoal sm:text-4xl">
+              {module.title}
+            </h1>
             {module.description && (
-              <p className="mt-3 text-base leading-relaxed text-charcoal/75">{module.description}</p>
+              <p className="mt-3 text-base leading-relaxed break-words text-charcoal/75">
+                {module.description}
+              </p>
             )}
           </div>
 
@@ -59,15 +63,17 @@ export function ModuleDetailPage() {
               Este módulo aún no tiene submódulos publicados.
             </p>
           ) : (
-            <div className="mt-10">
+            <div className="mt-8 min-w-0 sm:mt-10">
               <SubmoduleTabs
                 submodules={submodules}
                 activeId={activeSubmoduleId}
                 onChange={setActiveSubmoduleId}
               />
               {activeSubmodule && (
-                <div className="mt-0">
-                  <p className="mb-4 px-1 text-sm text-charcoal/65">{activeSubmodule.title}</p>
+                <div className="mt-4 min-w-0 md:mt-0">
+                  <p className="mb-4 hidden px-1 text-sm text-charcoal/65 md:block">
+                    {activeSubmodule.title}
+                  </p>
                   <SubmoduleContentPanel contents={activeContents} />
                 </div>
               )}
